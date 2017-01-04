@@ -7,7 +7,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-
+using NEventStore.Persistence.AcceptanceTests;
 using Xunit.Sdk;
 using Xunit.Runners.UI;
 
@@ -25,7 +25,6 @@ namespace NEventStore.Persistence.Sqlite.Droid.Tests
             AddExecutionAssembly(typeof(ExtensibilityPointFactory).Assembly);
             // or in any reference assemblies			
 
-            //AddTestAssembly(typeof(PortableTests).Assembly);
             // or in any assembly that you load (since JIT is available)
 
 #if false
