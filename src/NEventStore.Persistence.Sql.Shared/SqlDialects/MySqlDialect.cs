@@ -1,3 +1,4 @@
+#if FRAMEWORK
 namespace NEventStore.Persistence.Sql.SqlDialects
 {
     using System;
@@ -54,3 +55,4 @@ namespace NEventStore.Persistence.Sql.SqlDialects
         }
     }
 }
+#endif

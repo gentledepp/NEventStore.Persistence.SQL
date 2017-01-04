@@ -1,7 +1,9 @@
 namespace NEventStore.Persistence.Sql
 {
-    using System;
+#if FRAMEWORK
     using System.Configuration;
+#endif
+    using System;
     using System.Transactions;
     using NEventStore.Persistence.Sql.SqlDialects;
     using NEventStore.Serialization;
@@ -19,7 +21,11 @@ namespace NEventStore.Persistence.Sql
             : this(serializer, TransactionScopeOption.Suppress, null, DefaultPageSize)
         {
             _connectionFactory = new ConfigurationConnectionFactory(connectionName);
+#if FRAMEWORK
             _dialect = dialect ?? ResolveDialect(new ConfigurationConnectionFactory(connectionName).Settings);
+#else
+            _dialect = new SqliteDialect();
+#endif
         }
 
         public SqlPersistenceFactory(
@@ -75,6 +81,7 @@ namespace NEventStore.Persistence.Sql
             return new SqlPersistenceEngine(ConnectionFactory, Dialect, Serializer, _scopeOption, PageSize, StreamIdHasher);
         }
 
+#if FRAMEWORK
         protected static ISqlDialect ResolveDialect(ConnectionStringSettings settings)
         {
             string providerName = settings.ProviderName.ToUpperInvariant();
@@ -106,5 +113,6 @@ namespace NEventStore.Persistence.Sql
 
             return new MsSqlDialect();
         }
+#endif
     }
 }

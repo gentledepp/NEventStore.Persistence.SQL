@@ -1,7 +1,7 @@
 using System.Data;
 using System.Transactions;
 using IsolationLevel = System.Data.IsolationLevel;
-
+#if FRAMEWORK
 namespace NEventStore.Persistence.Sql.SqlDialects
 {
     using System;
@@ -105,3 +105,4 @@ namespace NEventStore.Persistence.Sql.SqlDialects
         }
     }
 }
+#endif

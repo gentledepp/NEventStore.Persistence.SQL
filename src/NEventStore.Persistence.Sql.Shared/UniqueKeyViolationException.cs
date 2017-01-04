@@ -32,6 +32,7 @@ namespace NEventStore.Persistence.Sql
             : base(message, innerException)
         {}
 
+#if !WINDOWS_UWP
         /// <summary>
         ///     Initializes a new instance of the UniqueKeyViolationException class.
         /// </summary>
@@ -40,5 +41,6 @@ namespace NEventStore.Persistence.Sql
         protected UniqueKeyViolationException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {}
+#endif
     }
 }
