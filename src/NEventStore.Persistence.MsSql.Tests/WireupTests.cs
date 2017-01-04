@@ -7,7 +7,7 @@ namespace NEventStore.Persistence.AcceptanceTests
     using NEventStore.Persistence.Sql;
     using NEventStore.Persistence.Sql.SqlDialects;
     using Xunit;
-    using Xunit.Should;
+    using XunitShould;
 
     public class when_specifying_a_hasher : SpecificationBase
     {

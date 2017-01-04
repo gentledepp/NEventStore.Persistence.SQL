@@ -37,9 +37,13 @@ namespace NEventStore.Persistence.AcceptanceTests
             Recorder.StatementsWithIsolationLevels.Select(i => i.IsolationLevel)
                 .ShouldAllBeEquivalentTo(new[] {IsolationLevel.ReadCommitted});
         }
+
+        public when_reusing_a_connection_from_the_connection_pool_without_a_transaction_scope(IsolationLevelPersistenceEngineFixture data) : base(data)
+        {
+        }
     }
 
-    public abstract class IsolationLevelConcern : SpecificationBase, IUseFixture<IsolationLevelPersistenceEngineFixture>
+    public abstract class IsolationLevelConcern : SpecificationBase, IClassFixture<IsolationLevelPersistenceEngineFixture>
     {
         private IsolationLevelPersistenceEngineFixture _fixture;
 
@@ -58,7 +62,7 @@ namespace NEventStore.Persistence.AcceptanceTests
             get { return _fixture.ConnectionFactory; }
         }
 
-        public void SetFixture(IsolationLevelPersistenceEngineFixture data)
+        public IsolationLevelConcern(IsolationLevelPersistenceEngineFixture data)
         {
             _fixture = data;
             _fixture.Initialize();

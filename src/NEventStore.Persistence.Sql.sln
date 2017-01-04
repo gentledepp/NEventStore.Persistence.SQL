@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{09DEED55-B936-4C29-AC45-6844080C025D}"
 	ProjectSection(SolutionItems) = preProject
@@ -30,6 +30,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEventStore.Persistence.Sql.Tests", "NEventStore.Persistence.Sql.Tests\NEventStore.Persistence.Sql.Tests.csproj", "{D210B888-D588-4231-9DDB-CB01F57D35C5}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\dependencies\NEventStore\src\NEventStore.Shared\NEventStore.Shared.projitems*{03946843-f343-419c-88ef-3e446d08dfa6}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
