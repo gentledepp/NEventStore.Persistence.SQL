@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace NEventStore.Persistence.Sql.SqlDialects
 {
     using System;
@@ -29,7 +31,30 @@ namespace NEventStore.Persistence.Sql.SqlDialects
 
         public override DateTime ToDateTime(object value)
         {
+#if !FRAMEWORK
+            if (value is DateTime)
+            {
+                return ((DateTime)value).ToUniversalTime();
+            }
+
+            if (value is string)
+            {
+                DateTime d;
+                // expecting something like 2018-01-04 15:46:32.3213822
+                //                       or 2017-01-04 15:54:09.586809
+                if (DateTime.TryParseExact((string)value, "yyyy-MM-dd HH:mm:ss.fffffff", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out d))
+                {
+                    return d.ToUniversalTime();
+                }
+                if (DateTime.TryParseExact((string)value, "yyyy-MM-dd HH:mm:ss.ffffff", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out d))
+                {
+                    return d.ToUniversalTime();
+                }
+            }
+            throw new InvalidOperationException($"the type '{value?.GetType().FullName}' cannot be converted to a valid datetime ('{value}')");
+#else
             return ((DateTime) value).ToUniversalTime();
+#endif
         }
     }
 }
