@@ -43,7 +43,7 @@ namespace NEventStore.Persistence.AcceptanceTests
         }
     }
 
-    public abstract class IsolationLevelConcern : SpecificationBase, IClassFixture<IsolationLevelPersistenceEngineFixture>
+    public abstract class IsolationLevelConcern : SpecificationBase2, IClassFixture<IsolationLevelPersistenceEngineFixture>
     {
         private IsolationLevelPersistenceEngineFixture _fixture;
 
@@ -66,6 +66,8 @@ namespace NEventStore.Persistence.AcceptanceTests
         {
             _fixture = data;
             _fixture.Initialize();
+
+            OnStart();
         }
 
         protected override void Cleanup()
