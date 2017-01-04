@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Resources;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("NEventStore.Persistence.Sql")]
@@ -10,3 +11,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
 [assembly: Guid("943530EA-7761-4012-84B2-68AAE3B5FC7C")]
+[assembly: NeutralResourcesLanguage("en")]

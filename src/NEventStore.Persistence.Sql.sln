@@ -45,10 +45,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEventStore.Persistence.Sql
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEventStore.UWP", "..\dependencies\NEventStore\src\NEventStore.UWP\NEventStore.UWP.csproj", "{51CEFD3D-BB3B-426C-8C51-04FDE5D6BB7F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEventStore.Persistence.Sqlite.UWP.Tests", "NEventStore.Persistence.Sqlite.UWP.Tests\NEventStore.Persistence.Sqlite.UWP.Tests.csproj", "{29B275DB-0946-4434-89DB-96A61670B823}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "NEventStore.Persistence.AcceptanceTests.Shared", "..\dependencies\NEventStore\src\NEventStore.Persistence.AcceptanceTests.Shared\NEventStore.Persistence.AcceptanceTests.Shared.shproj", "{0B9ABEBE-33AB-4066-ABB8-9F1E7584A125}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\dependencies\NEventStore\src\NEventStore.Shared\NEventStore.Shared.projitems*{03946843-f343-419c-88ef-3e446d08dfa6}*SharedItemsImports = 4
+		..\dependencies\NEventStore\src\NEventStore.Persistence.AcceptanceTests.Shared\NEventStore.Persistence.AcceptanceTests.Shared.projitems*{0b9abebe-33ab-4066-abb8-9f1e7584a125}*SharedItemsImports = 13
 		..\dependencies\NEventStore\src\NEventStore.Shared\NEventStore.Shared.projitems*{184306a0-cd59-46a7-afe9-301335949328}*SharedItemsImports = 4
+		..\dependencies\NEventStore\src\NEventStore.Persistence.AcceptanceTests.Shared\NEventStore.Persistence.AcceptanceTests.Shared.projitems*{29b275db-0946-4434-89db-96a61670b823}*SharedItemsImports = 4
+		..\dependencies\NEventStore\src\NEventStore.Persistence.AcceptanceTests.Shared\NEventStore.Persistence.AcceptanceTests.Shared.projitems*{3fe594fe-16ff-4405-97d5-5a58fb12520b}*SharedItemsImports = 4
 		..\dependencies\NEventStore\src\NEventStore.Shared\NEventStore.Shared.projitems*{51cefd3d-bb3b-426c-8c51-04fde5d6bb7f}*SharedItemsImports = 4
 		NEventStore.Persistence.Sql.Shared\NEventStore.Persistence.Sql.Shared.projitems*{6d2327e0-5303-452b-ba08-342731ed6df9}*SharedItemsImports = 4
 		NEventStore.Persistence.Sql.Shared\NEventStore.Persistence.Sql.Shared.projitems*{abf076d9-dcaa-49c7-a6c2-c0f55478cc69}*SharedItemsImports = 4
@@ -291,6 +298,26 @@ Global
 		{51CEFD3D-BB3B-426C-8C51-04FDE5D6BB7F}.Release|x64.Build.0 = Release|x64
 		{51CEFD3D-BB3B-426C-8C51-04FDE5D6BB7F}.Release|x86.ActiveCfg = Release|x86
 		{51CEFD3D-BB3B-426C-8C51-04FDE5D6BB7F}.Release|x86.Build.0 = Release|x86
+		{29B275DB-0946-4434-89DB-96A61670B823}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{29B275DB-0946-4434-89DB-96A61670B823}.Debug|ARM.ActiveCfg = Debug|ARM
+		{29B275DB-0946-4434-89DB-96A61670B823}.Debug|ARM.Build.0 = Debug|ARM
+		{29B275DB-0946-4434-89DB-96A61670B823}.Debug|ARM.Deploy.0 = Debug|ARM
+		{29B275DB-0946-4434-89DB-96A61670B823}.Debug|x64.ActiveCfg = Debug|x64
+		{29B275DB-0946-4434-89DB-96A61670B823}.Debug|x64.Build.0 = Debug|x64
+		{29B275DB-0946-4434-89DB-96A61670B823}.Debug|x64.Deploy.0 = Debug|x64
+		{29B275DB-0946-4434-89DB-96A61670B823}.Debug|x86.ActiveCfg = Debug|x86
+		{29B275DB-0946-4434-89DB-96A61670B823}.Debug|x86.Build.0 = Debug|x86
+		{29B275DB-0946-4434-89DB-96A61670B823}.Debug|x86.Deploy.0 = Debug|x86
+		{29B275DB-0946-4434-89DB-96A61670B823}.Release|Any CPU.ActiveCfg = Release|x86
+		{29B275DB-0946-4434-89DB-96A61670B823}.Release|ARM.ActiveCfg = Release|ARM
+		{29B275DB-0946-4434-89DB-96A61670B823}.Release|ARM.Build.0 = Release|ARM
+		{29B275DB-0946-4434-89DB-96A61670B823}.Release|ARM.Deploy.0 = Release|ARM
+		{29B275DB-0946-4434-89DB-96A61670B823}.Release|x64.ActiveCfg = Release|x64
+		{29B275DB-0946-4434-89DB-96A61670B823}.Release|x64.Build.0 = Release|x64
+		{29B275DB-0946-4434-89DB-96A61670B823}.Release|x64.Deploy.0 = Release|x64
+		{29B275DB-0946-4434-89DB-96A61670B823}.Release|x86.ActiveCfg = Release|x86
+		{29B275DB-0946-4434-89DB-96A61670B823}.Release|x86.Build.0 = Release|x86
+		{29B275DB-0946-4434-89DB-96A61670B823}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -306,5 +333,7 @@ Global
 		{D210B888-D588-4231-9DDB-CB01F57D35C5} = {FA2D40A7-AD63-42D5-B95D-AF5E10A9E124}
 		{184306A0-CD59-46A7-AFE9-301335949328} = {718A2129-5A87-4F47-9FED-63544E1E496B}
 		{51CEFD3D-BB3B-426C-8C51-04FDE5D6BB7F} = {718A2129-5A87-4F47-9FED-63544E1E496B}
+		{29B275DB-0946-4434-89DB-96A61670B823} = {FA2D40A7-AD63-42D5-B95D-AF5E10A9E124}
+		{0B9ABEBE-33AB-4066-ABB8-9F1E7584A125} = {FA2D40A7-AD63-42D5-B95D-AF5E10A9E124}
 	EndGlobalSection
 EndGlobal
