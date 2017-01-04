@@ -49,6 +49,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEventStore.Persistence.Sql
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "NEventStore.Persistence.AcceptanceTests.Shared", "..\dependencies\NEventStore\src\NEventStore.Persistence.AcceptanceTests.Shared\NEventStore.Persistence.AcceptanceTests.Shared.shproj", "{0B9ABEBE-33AB-4066-ABB8-9F1E7584A125}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEventStore.Persistence.Sqlite.Droid.Tests", "NEventStore.Persistence.Sqlite.Droid.Tests\NEventStore.Persistence.Sqlite.Droid.Tests.csproj", "{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEventStore.Droid", "..\dependencies\NEventStore\src\NEventStore.Droid\NEventStore.Droid.csproj", "{B0C675BB-763D-4B50-9979-01CBCFB790F6}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\dependencies\NEventStore\src\NEventStore.Shared\NEventStore.Shared.projitems*{03946843-f343-419c-88ef-3e446d08dfa6}*SharedItemsImports = 4
@@ -59,6 +63,8 @@ Global
 		..\dependencies\NEventStore\src\NEventStore.Shared\NEventStore.Shared.projitems*{51cefd3d-bb3b-426c-8c51-04fde5d6bb7f}*SharedItemsImports = 4
 		NEventStore.Persistence.Sql.Shared\NEventStore.Persistence.Sql.Shared.projitems*{6d2327e0-5303-452b-ba08-342731ed6df9}*SharedItemsImports = 4
 		NEventStore.Persistence.Sql.Shared\NEventStore.Persistence.Sql.Shared.projitems*{abf076d9-dcaa-49c7-a6c2-c0f55478cc69}*SharedItemsImports = 4
+		..\dependencies\NEventStore\src\NEventStore.Shared\NEventStore.Shared.projitems*{b0c675bb-763d-4b50-9979-01cbcfb790f6}*SharedItemsImports = 4
+		..\dependencies\NEventStore\src\NEventStore.Persistence.AcceptanceTests.Shared\NEventStore.Persistence.AcceptanceTests.Shared.projitems*{b74006f9-bee4-45bf-b72a-1e9dd45d410a}*SharedItemsImports = 4
 		NEventStore.Persistence.Sql.Shared\NEventStore.Persistence.Sql.Shared.projitems*{db57f504-84b3-43b2-9558-4922d5a87e3e}*SharedItemsImports = 4
 		NEventStore.Persistence.Sql.Shared\NEventStore.Persistence.Sql.Shared.projitems*{f02c1a8a-1649-41a4-890a-ae76f0f400aa}*SharedItemsImports = 13
 		NEventStore.Persistence.Sql.Shared\NEventStore.Persistence.Sql.Shared.projitems*{f9e7fd69-0818-48ca-9249-5387739e1b6a}*SharedItemsImports = 4
@@ -318,6 +324,46 @@ Global
 		{29B275DB-0946-4434-89DB-96A61670B823}.Release|x86.ActiveCfg = Release|x86
 		{29B275DB-0946-4434-89DB-96A61670B823}.Release|x86.Build.0 = Release|x86
 		{29B275DB-0946-4434-89DB-96A61670B823}.Release|x86.Deploy.0 = Release|x86
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Debug|ARM.Build.0 = Debug|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Debug|ARM.Deploy.0 = Debug|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Debug|x64.Build.0 = Debug|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Debug|x64.Deploy.0 = Debug|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Debug|x86.Build.0 = Debug|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Release|ARM.ActiveCfg = Release|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Release|ARM.Build.0 = Release|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Release|ARM.Deploy.0 = Release|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Release|x64.ActiveCfg = Release|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Release|x64.Build.0 = Release|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Release|x64.Deploy.0 = Release|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Release|x86.ActiveCfg = Release|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Release|x86.Build.0 = Release|Any CPU
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A}.Release|x86.Deploy.0 = Release|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Debug|ARM.Build.0 = Debug|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Debug|x64.Build.0 = Debug|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Debug|x86.Build.0 = Debug|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Release|ARM.ActiveCfg = Release|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Release|ARM.Build.0 = Release|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Release|x64.ActiveCfg = Release|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Release|x64.Build.0 = Release|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Release|x86.ActiveCfg = Release|Any CPU
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -335,5 +381,7 @@ Global
 		{51CEFD3D-BB3B-426C-8C51-04FDE5D6BB7F} = {718A2129-5A87-4F47-9FED-63544E1E496B}
 		{29B275DB-0946-4434-89DB-96A61670B823} = {FA2D40A7-AD63-42D5-B95D-AF5E10A9E124}
 		{0B9ABEBE-33AB-4066-ABB8-9F1E7584A125} = {FA2D40A7-AD63-42D5-B95D-AF5E10A9E124}
+		{B74006F9-BEE4-45BF-B72A-1E9DD45D410A} = {FA2D40A7-AD63-42D5-B95D-AF5E10A9E124}
+		{B0C675BB-763D-4B50-9979-01CBCFB790F6} = {718A2129-5A87-4F47-9FED-63544E1E496B}
 	EndGlobalSection
 EndGlobal
