@@ -161,11 +161,13 @@ namespace NEventStore.Persistence.Sql.SqlDialects
             Logger.Verbose(Messages.CreatingCommand);
             IDbCommand command = _connection.CreateCommand();
 
+#if FRAMEWORK
             int timeout = 0;
             if( int.TryParse( System.Configuration.ConfigurationManager.AppSettings["NEventStore.SqlCommand.Timeout"], out timeout ) ) 
             {
               command.CommandTimeout = timeout;
             }
+#endif
 
             command.Transaction = _transaction;
             command.CommandText = statement;

@@ -46,6 +46,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SqlPersistenceWireupExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StreamHeadExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ThreadScope.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TypeExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UniqueKeyViolationException.cs" />
   </ItemGroup>
   <ItemGroup>

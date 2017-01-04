@@ -1,12 +1,70 @@
+using System.Runtime.Serialization;
+
 namespace NEventStore.Persistence.Sql
 {
     using System;
     using System.Collections.Generic;
+#if FRAMEWORK
     using System.Configuration;
+#endif
     using System.Data;
     using System.Data.Common;
     using System.Linq;
     using NEventStore.Logging;
+
+#if !FRAMEWORK
+    /// <summary>
+    /// This is a stub for the actual ConnectionStringSettings class of System.Configuration which does not exist in PCL, Android, iOS or UWP
+    /// </summary>
+    public sealed class ConnectionStringSettings
+    {
+        public ConnectionStringSettings()
+        {
+        }
+
+        public ConnectionStringSettings(string name, string connectionString)
+            : this()
+        {
+            Name = name;
+            ConnectionString = connectionString;
+        }
+
+        public ConnectionStringSettings(string name, string connectionString, string providerName)
+            : this()
+        {
+            Name = name;
+            ConnectionString = connectionString;
+            ProviderName = providerName;
+        }
+
+        internal string Key => Name;
+
+        public string Name { get; set; }
+
+        public string ConnectionString { get; set; }
+
+        public override string ToString() {
+            return ConnectionString;
+        }
+
+        public string ProviderName { get; set; }
+    }
+    
+    public class ConfigurationErrorsException : Exception
+    {
+        public ConfigurationErrorsException()
+        {
+        }
+
+        public ConfigurationErrorsException(string message) : base(message)
+        {
+        }
+
+        public ConfigurationErrorsException(string message, Exception inner) : base(message, inner)
+        {
+        }
+    }
+#endif
 
     public class ConfigurationConnectionFactory : IConnectionFactory
     {
@@ -108,7 +166,12 @@ namespace NEventStore.Persistence.Sql
                 {
                     return factory;
                 }
+#if FRAMEWORK
                 factory = DbProviderFactories.GetFactory(setting.ProviderName);
+#else
+                // on Android, iOS and UWP, there will always be only SQLite available!
+                factory = SQLiteFactory.Instance;
+#endif
                 Logger.Debug(Messages.DiscoveredConnectionProvider, setting.Name, factory.GetType());
                 return CachedFactories[setting.Name] = factory;
             }
@@ -118,9 +181,13 @@ namespace NEventStore.Persistence.Sql
         {
             Logger.Debug(Messages.DiscoveringConnectionSettings, connectionName);
 
-            ConnectionStringSettings settings = _connectionStringSettings ?? ConfigurationManager.ConnectionStrings
+            ConnectionStringSettings settings = _connectionStringSettings
+#if FRAMEWORK
+                                                                    ?? ConfigurationManager.ConnectionStrings
                                                                     .Cast<ConnectionStringSettings>()
-                                                                    .FirstOrDefault(x => x.Name == connectionName);
+                                                                    .FirstOrDefault(x => x.Name == connectionName)
+#endif
+            ;
 
             if (settings == null)
             {
