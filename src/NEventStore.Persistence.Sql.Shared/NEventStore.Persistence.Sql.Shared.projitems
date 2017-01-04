@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>f02c1a8a-1649-41a4-890a-ae76f0f400aa</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>NEventStore.Persistence.Sql.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CommitExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConfigurationConnectionFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConnectionScope.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DelegateStreamIdHasher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExtensionMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IConnectionFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDbStatement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ISqlDialect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IStreamIdHasher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages.Designer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Properties\ProjectAssemblyInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sha1StreamIdHasher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SnapshotExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\CommonDbStatement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\CommonSqlDialect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\CommonSqlStatements.Designer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\DelimitedDbStatement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\MsSqlDialect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\MsSqlStatements.Designer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\MySqlDialect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\MySqlStatements.Designer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\NextPageDelegate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\OracleDbStatement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\OracleNativeDialect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\OracleNativeStatements.Designer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\PagedEnumerationCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\PostgreSqlDialect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\PostgreSqlStatements.Designer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\SqliteDialect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlDialects\SqliteStatements.Designer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlPersistenceEngine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlPersistenceFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlPersistenceWireup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqlPersistenceWireupExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StreamHeadExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThreadScope.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UniqueKeyViolationException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SqlDialects\CommonSqlStatements.resx" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SqlDialects\MsSqlStatements.resx" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SqlDialects\MySqlStatements.resx" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SqlDialects\OracleNativeStatements.resx" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SqlDialects\PostgreSqlStatements.resx" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SqlDialects\SqliteStatements.resx" />
+  </ItemGroup>
+</Project>

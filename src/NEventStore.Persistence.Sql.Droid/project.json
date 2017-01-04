@@ -1,0 +1,10 @@
+﻿{
+  "dependencies": {
+  },
+  "frameworks": {
+    "monoandroid403": {}
+  },
+  "runtimes": {
+    "win": {}
+  }
+}
