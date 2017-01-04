@@ -170,7 +170,7 @@ namespace NEventStore.Persistence.Sql
                 factory = DbProviderFactories.GetFactory(setting.ProviderName);
 #else
                 // on Android, iOS and UWP, there will always be only SQLite available!
-                factory = SQLiteFactory.Instance;
+                factory = SqLiteFactory.Instance;
 #endif
                 Logger.Debug(Messages.DiscoveredConnectionProvider, setting.Name, factory.GetType());
                 return CachedFactories[setting.Name] = factory;
