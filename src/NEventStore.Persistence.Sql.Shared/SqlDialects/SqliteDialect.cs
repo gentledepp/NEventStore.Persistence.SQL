@@ -50,8 +50,28 @@ namespace NEventStore.Persistence.Sql.SqlDialects
                 {
                     return d.ToUniversalTime();
                 }
+                if (DateTime.TryParseExact((string)value, "yyyy-MM-dd HH:mm:ss.fffff", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out d))
+                {
+                    return d.ToUniversalTime();
+                }
+                if (DateTime.TryParseExact((string)value, "yyyy-MM-dd HH:mm:ss.ffff", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out d))
+                {
+                    return d.ToUniversalTime();
+                }
+                if (DateTime.TryParseExact((string)value, "yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out d))
+                {
+                    return d.ToUniversalTime();
+                }
+                if (DateTime.TryParseExact((string)value, "yyyy-MM-dd HH:mm:ss.ff", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out d))
+                {
+                    return d.ToUniversalTime();
+                }
+                if (DateTime.TryParseExact((string)value, "yyyy-MM-dd HH:mm:ss.f", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out d))
+                {
+                    return d.ToUniversalTime();
+                }
             }
-            throw new InvalidOperationException($"the type '{value?.GetType().FullName}' cannot be converted to a valid datetime ('{value}')");
+            throw new InvalidOperationException($"('{value}'): the type '{value?.GetType().FullName}' cannot be converted to a valid datetime");
 #else
             return ((DateTime) value).ToUniversalTime();
 #endif
