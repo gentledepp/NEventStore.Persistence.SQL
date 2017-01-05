@@ -32,7 +32,7 @@ namespace NEventStore.Persistence.Sql
             : base(message, innerException)
         {}
 
-#if !WINDOWS_UWP
+#if !WINDOWS_UWP && !PCL
         /// <summary>
         ///     Initializes a new instance of the UniqueKeyViolationException class.
         /// </summary>

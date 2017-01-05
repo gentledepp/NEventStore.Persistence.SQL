@@ -18,7 +18,7 @@
   </metadata>
   <files>
     <file src="output\net\NEventStore.Persistence.*" target="lib\net452"/>
-    <!--<file src="output\pcl\NEventStore.Persistence.*" target="lib\portable-net45+sl50+win+wpa81+wp80"/>-->
+    <!--<file src="output\pcl\NEventStore.Persistence.*" target="lib\netstandard1.3"/>-->
     <file src="output\droid\NEventStore.Persistence.*" target="lib\monoandroid403"/>
     <file src="output\ios\NEventStore.Persistence.*" target="lib\xamarinios1.0"/>
     <file src="output\uwp\NEventStore.Persistence.*" target="lib\win81"/>
