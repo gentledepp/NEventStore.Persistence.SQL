@@ -13,11 +13,14 @@
     <language>es-US</language>
     <tags>events, event sourcing, cqrs, storage, persistence, database, sql</tags>
     <dependencies>
-      <dependency id="NEventStore" version="5.0" />
+      <dependency id="NEventStore" version="5.0.1" />
     </dependencies>
   </metadata>
   <files>
-     <file src="\NEventStore.Persistence.Sql\bin\$configuration$\NEventStore.Persistence.Sql.dll" target="lib\net4"/>
-    <file src="NEventStore.Persistence.Sql\bin\$configuration$\NEventStore.Persistence.Sql.pdb" target="lib\net4"/>
+    <file src="output\net\NEventStore.Persistence.*" target="lib\net452"/>
+    <!--<file src="output\pcl\NEventStore.Persistence.*" target="lib\portable-net45+sl50+win+wpa81+wp80"/>-->
+    <file src="output\droid\NEventStore.Persistence.*" target="lib\monoandroid403"/>
+    <file src="output\ios\NEventStore.Persistence.*" target="lib\xamarinios1.0"/>
+    <file src="output\uwp\NEventStore.Persistence.*" target="lib\win81"/>
   </files>
 </package>

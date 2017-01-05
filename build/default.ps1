@@ -1,6 +1,18 @@
+
+function getTestRunner([string]$packagePath ){
+	$testRunners = @(gci $nuget_packages_dir -rec -filter xunit.console.x86.exe)
+	if ($testRunners.Length -ne 1)
+	{
+		throw "Expected to find 1 xunit.console.x86.exe, but found $($testRunners.Length)."
+	}
+
+	$testRunner = $testRunners[0].FullName
+	$testRunner
+}
+
 properties {
     $base_directory = Resolve-Path ..
-    $publish_directory = "$base_directory\publish-net40"
+    $publish_directory = "$base_directory\publish"
     $build_directory = "$base_directory\build"
     $src_directory = "$base_directory\src"
     $output_directory = "$base_directory\output"
@@ -8,11 +20,13 @@ properties {
     $sln_file = "$src_directory\NEventStore.Persistence.Sql.sln"
     $target_config = "Release"
     $framework_version = "v4.0"
-    $assemblyInfoFilePath = "$src_directory\VersionAssemblyInfo.cs"
+    $assemblyInfoFilePath = "$src_directory\AssemblyInfo.cs"
 
-    $xunit_path = "$base_directory\bin\xunit.runners.1.9.1\tools\xunit.console.clr4.exe"
-    $ilMergeModule.ilMergePath = "$base_directory\bin\ilmerge-bin\ILMerge.exe"
-    $nuget_dir = "$src_directory\.nuget"
+    #$xunit_path = "$base_directory\bin\xunit.runners.1.9.1\tools\xunit.console.clr4.exe"
+    #$ilMergeModule.ilMergePath = "$base_directory\bin\ilmerge-bin\ILMerge.exe"
+    
+	$msbuild = "C:\Program Files (x86)\MSBuild\14.0\Bin\MsBuild.exe"
+	$nuget_dir = "$src_directory\.nuget"
 
 	if($build_number -eq $null) {
 		$build_number = 0
@@ -21,6 +35,9 @@ properties {
     if($runPersistenceTests -eq $null) {
     	$runPersistenceTests = $false
     }
+	$up = [System.Environment]::ExpandEnvironmentVariables("%UserProfile%")
+	$nuget_packages_dir = "$up\.nuget\packages"
+	$xunit_path = getTestRunner -packagePath $nuget_packages_dir#"$base_directory\bin\xunit.runners.1.9.1\tools\xunit.console.clr4.exe"
 }
 
 task default -depends Build
@@ -43,8 +60,8 @@ task UpdateVersion {
 
 task Compile {
 	EnsureDirectory $output_directory
-	exec { msbuild /nologo /verbosity:quiet $sln_file /p:Configuration=$target_config /t:Clean }
-	exec { msbuild /nologo /verbosity:quiet $sln_file /p:Configuration=$target_config /p:TargetFrameworkVersion=$framework_version }
+	exec { & $msbuild  /nologo /verbosity:quiet $sln_file /p:Configuration=$target_config /t:Clean }
+	exec { & $msbuild  /nologo /verbosity:quiet $sln_file /p:Configuration=$target_config } #/p:TargetFrameworkVersion=$framework_version }
 }
 
 task Test -precondition { $runPersistenceTests } {
@@ -56,7 +73,7 @@ task Test -precondition { $runPersistenceTests } {
 }
 
 task Package -depends Build {
-	move $output_directory $publish_directory
+	#move $output_directory $publish_directory
     mkdir $publish_directory\plugins\persistence\sql | out-null
     copy "$src_directory\NEventStore.Persistence.Sql\bin\$target_config\NEventStore.Persistence.Sql.???" "$publish_directory\plugins\persistence\sql"
 }
