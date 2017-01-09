@@ -8,11 +8,19 @@
     {
         public PersistenceEngineFixture()
         {
+            var knownTypes = new[]
+            {
+                typeof(NEventStore.Persistence.AcceptanceTests.ExtensionMethods.SomeDomainEvent),
+                typeof(NEventStore.Persistence.AcceptanceTests.SimpleMessage),
+            };
+            var serializer = new ProtobufSerializer(knownTypes);
+
             _createPersistence = pageSize => 
                 new SqlPersistenceFactory(
                     //new ConfigurationConnectionFactory("NEventStore.Persistence.AcceptanceTests.Properties.Settings.SQLite"),
                     new ConfigurationConnectionFactory("NEventStore", "thisisignored", "Data Source=NEventStore.db;"),
-                    new JsonSerializer(), 
+                    //new JsonSerializer(), 
+                    serializer,
                     new SqliteDialect(),
                     pageSize: pageSize).Build();
         }
